@@ -1,0 +1,19 @@
+<div class="row">
+    <h2> Popular tags </h2>
+    <div class="tags">
+        {% for tag in tags %}
+       <a href="{% url 'tag' tag_label=tag%}"> <span class="badge bg-primary">{{tag}}</span></a>
+        {% endfor %}
+    </div>
+
+
+    <br/>
+    <div class="upcontent">
+        <h2>Best members</h2>
+        <ul class="list-group" style="margin-left: 15px; margin-top: 20px; max-width: 250px;">
+        {% for user in users %}
+            <li class="list-group-item"><a href="">{{user}}</a></li>
+        {% endfor %}
+        </ul>
+    </div>
+</div>
