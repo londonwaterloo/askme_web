@@ -7,24 +7,33 @@
         <div class="d-flex flex-column align-items-center">
             <button class="btn btn-outline-success mb-2 like_answer" data-id="{{ answer.id }}">+</button>
             <button class="btn btn-outline-danger mb-2 dislike_answer" data-id="{{ answer.id }}">−</button>
+
             <div class="answer-rating mt-2">
-                <span>{{ answer.rating }}</span>
+                <span>{{ answer.get_like_count }}</span>
             </div>
         </div>
 
     </div>
 
     <div class="col-9">
-        <div class="question-text">{{ answer.text }}</div>
+
+        <div class="question-text">
+            {{ answer.text }}
+        </div>
 
         <div class="row align-items-end question-meta">
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" id="correct_{{ answer.id }}">
+                <input class="form-check-input"
+                       type="checkbox"
+                       id="correct_{{ answer.id }}"
+                       {% if answer.solution %}checked{% endif %}>
+
                 <label class="form-check-label" for="correct_{{ answer.id }}">
                     Correct!
                 </label>
             </div>
         </div>
+
     </div>
 
 </div>

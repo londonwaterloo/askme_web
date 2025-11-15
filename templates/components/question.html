@@ -11,7 +11,7 @@
     </button>
 
     <div class="question-rating mt-2">
-        <span>{{ question.rating }}</span>
+        <span>{{ question.get_like_count }}</span>
     </div>
 
 </div>
@@ -23,13 +23,13 @@
         <div class="row align-items-end question-meta">
             <div class="col mb-5">
                 <a href="{% url 'question' q_id=question.id %}#answers_block"> Answers
-                    {{question.answers.count}}</a>
+                    {{question.get_answer_count}}</a>
             </div>
             <div class="col mb-5">
                 <span class="tags_title">Tags: </span>
                 <div class="question-tags">
-                    {% for tag in question.tags %}
-                     <a class="tag_in_question" href="{% url 'tag' tag_label=tag%}">{{tag}}</a>
+                    {% for tag in question.tags.all %}
+                     <a class="tag_in_question" href="{% url 'tag' tag_label=tag.title%}">{{tag.title}}</a>
                     {% endfor %}
                 </div>
 
