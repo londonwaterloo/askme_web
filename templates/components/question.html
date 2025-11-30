@@ -1,0 +1,40 @@
+{% load static %}
+<div class="row question">
+    <div class="col-3 d-flex flex-column align-items-center justify-content-start">
+
+    <button class="btn btn-outline-success mb-2 like_question" data-id="{{ question.id }}">
+        +
+    </button>
+
+    <button class="btn btn-outline-danger mb-2 dislike_question" data-id="{{ question.id }}">
+        −
+    </button>
+
+    <div class="question-rating mt-2">
+        <span>{{ question.rating }}</span>
+    </div>
+
+</div>
+
+    <div class="col-9">
+        <div class="question-title"><a href="{% url 'question' q_id=question.id %}"> {{ question.title }}</a></div>
+        <div class="question-text">{{ question.text }}
+        </div>
+        <div class="row align-items-end question-meta">
+            <div class="col mb-5">
+                <a href="{% url 'question' q_id=question.id %}#answers_block"> Answers
+                    {{question.answers.count}}</a>
+            </div>
+            <div class="col mb-5">
+                <span class="tags_title">Tags: </span>
+                <div class="question-tags">
+                    {% for tag in question.tags %}
+                     <a class="tag_in_question" href="{% url 'tag' tag_label=tag%}">{{tag}}</a>
+                    {% endfor %}
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>

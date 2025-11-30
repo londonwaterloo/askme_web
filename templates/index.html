@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+{% block content %}
+<h1>Questions</h1>
+{% for question in content %}
+    {% include 'components/question.html' %}
+{% endfor%}
+
+{% include 'components/paginator.html' %}
+{% endblock %}
+

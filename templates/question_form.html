@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+
+<h1>New question</h1>
+
+<form method="post" class="mt-4">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <label for="question_title" class="form-label">Title</label>
+        <input type="text" class="form-control" id="question_title" name="title" placeholder="Your question">
+    </div>
+
+    <div class="mb-3">
+        <label for="question_text" class="form-label">Text</label>
+        <textarea class="form-control" id="question_text" name="text" rows="10"></textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="question_tags" class="form-label">Tags</label>
+        <input type="text" class="form-control" id="question_tags" name="tags" placeholder="moon, park, puzzle">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Ask</button>
+</form>
+
+{% endblock %}

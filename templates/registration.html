@@ -1,0 +1,69 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Registration</h1>
+
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, this login is not valid! </span>
+        </div>
+
+        <label for="reg_login" class="form-label">Login</label>
+        <input type="text" class="form-control" id="reg_login" name="login">
+    </div>
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, this email address is already registered! </span>
+        </div>
+
+        <label for="reg_email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="reg_email" name="email">
+    </div>
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, this nickname is already taken! </span>
+        </div>
+
+        <label for="reg_nickname" class="form-label">Nickname</label>
+        <input type="text" class="form-control" id="reg_nickname" name="nickname">
+    </div>
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, the password must contain numbers! </span>
+        </div>
+
+        <label for="reg_password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="reg_password" name="password">
+    </div>
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, passwords do not match! </span>
+        </div>
+
+        <label for="reg_password2" class="form-label">Repeat Password</label>
+        <input type="password" class="form-control" id="reg_password2" name="password2">
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="reg_avatar">Upload avatar</label>
+        <input type="file" class="form-control" id="reg_avatar" name="avatar">
+    </div>
+
+    <button type="submit" class="btn btn-light btn-border">Register!</button>
+
+    <div class="margin-top-fortext">
+        <a href="{% url 'login' %}">
+            <span>Already have an account? Log in</span>
+        </a>
+    </div>
+
+</form>
+
+{% endblock %}

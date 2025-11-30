@@ -1,0 +1,36 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Log In</h1>
+
+<form method="post">
+    {% csrf_token %}
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, this login is not valid!</span>
+        </div>
+
+        <label for="login_field" class="form-label">Login</label>
+        <input type="text" class="form-control" id="login_field" name="login">
+    </div>
+
+    <div class="mb-3">
+        <div class="error-message">
+            <span> Sorry, the password must contain numbers!</span>
+        </div>
+
+        <label for="password_field" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password_field" name="password">
+    </div>
+
+    <button type="submit" class="btn btn-light btn-border">Log in!</button>
+
+    <div class="margin-top-fortext">
+        <a href="{% url 'registration' %}">
+            <span>create new account</span>
+        </a>
+    </div>
+</form>
+
+{% endblock %}

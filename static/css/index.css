@@ -1,0 +1,173 @@
+main > .container {
+    padding-top: 60px;
+    padding-bottom: 180px;
+}
+
+header {
+margin-bottom: 40px;
+}
+
+.question {
+    border: 1px solid grey;
+    margin-top: 30px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+
+.question-image {
+    margin-top: 15px;
+    max-width: 150px;
+    max-height: 150px
+}
+
+.question-title {
+    font-size: 30px;
+    font-family: Helvetica;
+    font-weight: bold;
+
+}
+
+.tags {
+    max-width: 100px;
+    margin: 10px;
+}
+
+.sidecontent {
+    padding-left: 40px;
+}
+
+.upcontent {
+    margin-top: 20px;
+}
+
+.buttoncolor {
+    background-color: white;
+    border: 1px solid white;
+}
+
+.counter {
+    width: 100px;
+    padding: 5px;
+    border: solid gray 2px;
+    border-radius: 4px;
+    height: 40px;
+    transition: 0.25s;
+}
+
+.counter:hover{
+    background-color: #f75252;
+    border: solid #f75252 1px;
+}
+
+.counter img{
+    height: 100%;
+    object-fit: fill;
+    margin-bottom: 10px;
+}
+
+.counter span{
+    font-size: 20px;
+    margin-left: 10px;
+    position: relative;
+    top: -10%;
+
+}
+
+.like_question {
+margin-top: 15px;
+}
+
+.question-meta {
+    height: 60px;
+}
+
+
+.tag_in_question {
+    padding: 2px;
+    margin-right: 3px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    max-width: 10px;
+    border: #0877B3 solid 2px;
+    border-radius: 3px;
+    text-decoration: none;
+    color: black;
+    transition: 0.2s;
+
+}
+.tag_in_question:hover {
+    background-color: #0A9CF0;
+    color: black;
+}
+
+.question-tags {
+    margin-top: 8px;
+}
+
+.answer-image-page3 {
+    margin-top: 10px;
+    max-width: 120px;
+    max-height: 120px
+}
+
+.tags_title_page3 {
+    margin-top: 10px;
+}
+
+.form-label-page3 {
+    margin-top: 15px;
+}
+
+.error-message {
+    margin: 20px 20px 20px 0px;
+    color: red;
+}
+
+.btn-border {
+    border-color: black;
+}
+
+.margin-top-fortext {
+    margin-top: 20px;
+}
+
+.authorized {
+    height: 80%;
+    margin-left: 200px;
+    display: inline-flex;
+}
+
+.username a {
+    text-decoration: none;
+    color: #D9EEF9;
+    margin-right: 10px;
+
+}
+
+
+.username a:hover {
+    color: #53ACDC;
+}
+
+.avatar-auth {
+    width: 70px;
+    margin-right: 30px;
+}
+
+.avatar-auth img {
+    width: 100%;
+    object-fit: cover;
+        border-radius: 50%;
+}
+.username {
+    color: white;
+}
+
+.content-container {
+    padding-bottom: 80px !important; 
+}
+
+.main-content {
+    margin-bottom: 120px !important; 
+}
