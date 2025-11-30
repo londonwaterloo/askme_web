@@ -2,43 +2,78 @@
 {% load static %}
 
 {% block content %}
+
 <div class="row question-on-page">
+
     <div class="col-3">
+
         <img src="{% static 'img/question.jpg' %}" alt="" class="question-image">
-        <button class="counter like_question" data-id="">
-            <img src="{% static 'img/heart.svg' %}" alt="heart">
-            <span>1</span>
-        </button>
+
+        <!-- Лайки вопроса -->
+        <div class="d-flex flex-column align-items-center mt-3">
+            <button class="btn btn-outline-success mb-2 like_question" data-id="{{ question.id }}">+</button>
+            <button class="btn btn-outline-danger mb-2 dislike_question" data-id="{{ question.id }}">−</button>
+
+            <div class="question-rating mt-2">
+                <span>{{ question.get_like_count }}</span>
+            </div>
+        </div>
 
     </div>
+
     <div class="col-9">
-        <div class="question-title"> {{question.title}}</div>
-        <div class="question-text"> {{question.text}}</div>
-        <div class="row align-items-end question-meta">
+
+        <div class="question-title">{{ question.title }}</div>
+
+        <div class="question-text">{{ question.text }}</div>
+
+        <div class="row align-items-end question-meta mt-3">
             <div class="col mb-5">
-                <span class="tags_title_page3">Tags: </span>
+
+                <span class="tags_title_page3">Tags:</span>
+
                 <div class="question-tags">
-                    {% for tag in question.tags %}
-                    <a class="tag_in_question" href="{% url 'tag' tag_label=tag%}">{{tag}}</a>
+                    {% for tag in question.tags.all %}
+                        <a class="tag_in_question"
+                           href="{% url 'tag' tag_label=tag.title %}">
+                           {{ tag.title }}
+                        </a>
                     {% endfor %}
                 </div>
 
             </div>
         </div>
-    </div>
 
+    </div>
 </div>
+
+<!-- Answers block -->
 <div>
-    <h2> <a name="answers_block">Answers</a> </h2>
+    <h2>
+        <a name="answers_block">Answers ({{ question.get_answer_count }})</a>
+    </h2>
+
     {% for answer in content %}
         {% include 'components/answer.html' %}
     {% endfor %}
+
     {% include 'components/paginator.html' %}
 </div>
 
-<div class="mb-3">
-    <label for="exampleFormControlTextarea1" class="form-label-page3">Answer a question</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="10"></textarea>
-</div>
-<button type="button" class="btn btn-secondary">Answer</button>
+<!-- Answer form -->
+<form method="POST">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label-page3">
+            Answer the question
+        </label>
+        <textarea class="form-control"
+                  id="exampleFormControlTextarea1"
+                  name="answer_text"
+                  rows="10"></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-secondary">Answer</button>
+</form>
+
 {% endblock %}

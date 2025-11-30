@@ -1,0 +1,11 @@
+{% extends 'layouts/base.html' %}
+
+{% block content %}
+<h1>Hot questions</h1>
+
+{% for question in content %}
+    {% include 'components/question.html' %}
+{% endfor %}
+
+{% include 'components/paginator.html' %}
+{% endblock %}
